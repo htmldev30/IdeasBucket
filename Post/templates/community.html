@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% include "home.html" %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+{% block content %}
+
+<!-- Page Content -->
+<section class="u-content-space js-parallax bg-dark u-content-space">
+<div class="container">
+
+    <!-- Heading Row -->
+    <div class="row align-items-center my-5">
+        <div class="col-lg-7">
+            <img class="img-fluid rounded mb-4 mb-lg-0 border-bottom-success" src="https://via.placeholder.com/640x360" alt="">
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-5">
+            <h1 class="font-weight-light text-white">{{community.community_name}}</h1>
+            <p class="text-white">{{community.community_bio}}</p>
+
+  
+                  
+                        <h5 class="modal-title text-dark" id="exampleModalLongTitle"><b>Add any ideas</b></h5>
+                       
+                     
+                      <br>
+                      <div class="modal-body">
+                      <div class="form-group mb-4">
+                      <span class="form-icon-wrapper">
+                        
+                        <form action="" method="POST">
+                          {% csrf_token %}
+                          {% render_field idea_form.idea %}
+                          
+                      </span>
+                    </div>
+                      </div>
+                      <div class="modal-footer">
+                        
+                           
+                        <input name="idea_input" class="btn btn-info" value="Add To Bin" type="submit">
+                      </form>
+ </div>
+        </div>
+        <!-- /.col-md-4 -->
+    </div>
+    <!-- /.row -->
+
+    <!-- Call to Action Well -->
+        <div class="display-6 card text-white bg-dark my-5 py-4 text-center">
+        <div class="card-body">
+            <p class="text-white m-0">A dedicated news and headsup banner - Coming Soon</p>
+        </div>
+    </div>
+
+    <!-- Content Row -->
+   <div class="row">
+    {% for idea in comm_ideas %}
+      <div class="col-md-4 mb-5">
+            <!-- Basic Card Example -->
+            <div class="card shadow mb-5 border-bottom-success">
+                <div class="card-header py-3">
+                    <h5 class="m-0 display-6">{{idea.user}} <small style="font-size: 11px"></small></h5>
+                </div>
+                    
+                <div class="card-body">
+                          <h3 class="m-0 font-weight-bold text-dark">
+                        
+                        
+                    </h3>
+                    {{ idea.idea }}
+                  
+                </div>
+
+                <!--
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary btn-sm">More Info</a>
+                </div>
+              -->
+    </div>
+
+        </div>
+       {% endfor %}
+    </div>
+
+   <!-- /.row -->
+
+</div>
+</section>
+<!-- /.container -->
+
+{% endblock %}

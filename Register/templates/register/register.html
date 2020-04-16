@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+      <section class="u-content-space js-parallax bg-dark u-content-space">
+    <div class="container">
+  
+      <!-- Outer Row -->
+      <div class="row justify-content-center">
+  
+        <div class="col-xl-10 col-lg-12 col-md-9">
+  
+          <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0 bg-dark">
+              <!-- Nested Row within Card Body -->
+              <div class="row">
+                <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                <div class="col-lg-6">
+                  <div class="p-5">
+                    <div class="text-center">
+                      <h1 class="h4 text-gray-900 mb-4 text-white">Register now!</h1>
+                    </div>
+                    
+                    <form method="POST" class="user">
+                      <div class="form-group text-white">
+
+                        {% csrf_token %}
+                        {{register_form|crispy}}
+                      </div>
+                      <input type="submit" class="btn btn-success" value="Sign Up">
+                     
+                
+                    </form>
+             
+                    <hr>
+                    <div class="text-center">
+                      <a class="small text-white" href="">Forgot Password? - Coming Son</a>
+                    </div>
+                    <div class="text-center">
+                      <a class="small text-white" href="{% url 'login' %}">Already have an account?</a>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+{% endblock %}
