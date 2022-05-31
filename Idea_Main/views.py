@@ -9,8 +9,7 @@ from Post.models import Idea, Communities
 
 def home(request, pk=None):
 
-        if not user.is_authenticated:
-                return redirect("register")
+        
 	if User.is_authenticated:
 		community_form = CommunityForm(request.POST)
 		if request.method == "POST":
@@ -45,7 +44,8 @@ def home(request, pk=None):
 
 
 	# User Ideas
-	
+	if not user.is_authenticated:
+                return redirect("register")
 
 	ideas = Idea.objects.filter(user=request.user, is_public=False).order_by('-time_posted')
 	pub_ideas = Idea.objects.filter(user=request.user,is_public=True).order_by('-time_posted')
