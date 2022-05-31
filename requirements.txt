@@ -6,7 +6,7 @@ django-environ==0.8.1
 django-widget-tweaks==1.4.12
 gunicorn==20.1.0
 packaging==21.3
-Pillow==7.1.1
+Pillow==9.1.1
 pip-review==1.1.1
 pyparsing==3.0.9
 pytz==2019.3
