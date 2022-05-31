@@ -4,7 +4,7 @@
 <html lang="en" class="no-js">
   <!-- Head -->
   <head>
-    <title>IdeaBucket</title>
+    <title>IdeasBucket</title>
 
     <!-- Meta -->
     <meta charset="utf-8"/>
@@ -43,30 +43,31 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
               <ul class="navbar-nav ml-auto mr-sm-2 mt-2 mt-lg-0">
                 <li class="nav-item active mr-3">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item mr-3">
                   <a class="nav-link" href="{% url 'communities' %}">Explore</a>
                 </li>
                 <li class="nav-item mr-3">
 
-                  <a class="nav-link mr-3 u-link text-center d-block text-white " data-toggle="modal" href="#exampleModal"> <i class="fas fa-box-open"> </i> My Ideas</a>
+                  {%  if request.path == "/" %} <a class="nav-link mr-3 u-link text-center d-block text-white " data-toggle="modal" href="#exampleModal"> <i class="fas fa-box-open"> </i> My Ideas</a> 
+                  {% else %}
+                  <a class="nav-link mr-3 u-link text-center d-block text-white " href="{% url 'home' %}"> <i class="fas fa-box-open"> </i> My Ideas</a> 
+                  {% endif %}
+
                 </li>
               </ul>
 
               <ul class="navbar-nav">
                 <li class="nav-item dropdown">
                   <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle u-box-shadow-sm mr-2" width="35" height="35" src="{% static 'img-temp/ava/img3.jpg' %}" alt="Htmlstream"> {{user.get_username}} <i class="fas fa-angle-down small ml-1"></i>
+                  {{user.get_username}} <i class="fas fa-angle-down"></i>
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-                    <a class="dropdown-item" data-toggle="modal" href="#profile_model" href="#">Profile</a>
-                    <a class="dropdown-item" data-toggle="modal" href="#start_commu_model" href="#">Start Community</a>
-                    <a class="dropdown-item" href="#">Account Settings</a>
-                    <a class="dropdown-item" href="#">Newsletter</a>
+                    {%  if request.path == "/" %} <a class="dropdown-item" data-toggle="modal" href="#start_commu_model" href="#">Start Community</a> {% endif %}
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{% url 'logout' %}">Sign Out</a>
                   </div>
@@ -77,14 +78,89 @@
         </nav>
         <!-- End Dark Nav -->
 
-        <body>
+        <body style="background-color: #1b1e24;">
+          
         {% block content %}
 
 
         {% endblock %}
+   
+        
+    
+        <footer class="pt-5 my-5 border-top">
+          <div class="col-lg-8 col-md-10 mx-auto">
+           <small class="copyright text-muted">The user interface of this website was helped developed by Bootstrap and Bootstrap Free To Use Examples. </small> </p>
+          </div>
+        </footer>
+   
+        
         </body>
 
 
+      <!-- Cookie Consent by https://www.FreePrivacyPolicy.com -->
+<script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.0.0/cookie-consent.js" charset="UTF-8"></script>
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"dark","language":"en","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"IdeasBucket","website_privacy_policy_url":"https://ideasbucket.herokuapp.com"});
+});
+</script>
+
+<!-- Google Analytics -->
+<script type="text/plain" cookie-consent="tracking" async src="https://www.googletagmanager.com/gtag/js?id=G-WS6FYDBG8M"></script>
+<script type="text/plain" cookie-consent="tracking">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){window.dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WS6FYDBG8M');
+</script>
+
+<!-- end of Google Analytics-->
+
+<noscript>Cookie Consent by <a href="https://www.freeprivacypolicy.com/" rel="nofollow noopener">Free Privacy Policy Generator website</a></noscript>
+
+<script>
+  // THIS PIECE OF CODE IS FROM Chris HG - https://stackoverflow.com/users/1916816/chris-hg
+  var createCookie = function (name, value, days) {
+    var expires;
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+      expires = "; expires=" + date.toGMTString();
+    } else {
+      expires = "";
+    }
+    document.cookie = name + "=" + value + expires + "; path=/";
+  };
+
+  function getCookie(c_name) {
+    if (document.cookie.length > 0) {
+      c_start = document.cookie.indexOf(c_name + "=");
+      if (c_start != -1) {
+        c_start = c_start + c_name.length + 1;
+        c_end = document.cookie.indexOf(";", c_start);
+        if (c_end == -1) {
+          c_end = document.cookie.length;
+        }
+        return unescape(document.cookie.substring(c_start, c_end));
+      }
+    }
+    return "";
+  }
+  function TOS() {
+    var cookieName = "hasVisitedBefore";
+    var cookie = getCookie(cookieName);
+    if (!cookie) {
+      alert(
+        "By visiting this page, you agree to its Terms of Service. You may visit the Terms of Service at - https://blog-mayhem.herokuapp.com/terms-of-service"
+      );
+      createCookie(cookieName, true, 3650);
+    }
+  }
+  TOS();
+</script>
+
+<!-- End Cookie Consent -->
     <!-- JAVASCRIPTS (Load javascripts at bottom, this will reduce page load time) -->
     <!-- Global Vendor -->
     <script src="{% static 'vendors/jquery.min.js' %}"></script>

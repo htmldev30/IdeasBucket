@@ -3,7 +3,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-
+# Thank you Tech With Tim for guiding me through the User Creation Process Code in this Register App
 class RegisterForm(UserCreationForm):
     email = forms.EmailField()
 

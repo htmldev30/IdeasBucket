@@ -10,8 +10,6 @@ class Communities(models.Model):
     user_created_by = models.ForeignKey(User, null=True, on_delete=models.CASCADE, related_name="User")
     community_name = models.CharField(max_length=25, null=True)
     community_bio  = models.CharField(max_length=100,null=True)
-    community_image_icon = models.FileField(upload_to="community_icons", null=True, 
-                                            default='/community_icons/default_community_icon.jpg')
     community_created_time = models.DateTimeField(auto_now_add=True)
     community_slug = models.SlugField(max_length=40, unique=True)
 
@@ -42,7 +40,7 @@ class Idea(models.Model):
 
 	def __str__(self):
 		return self.idea
-
+	# This following function was helped developed by a kind user on StackOverFlow.com
 	def timesince(self):
 		now = timezone.now()
 

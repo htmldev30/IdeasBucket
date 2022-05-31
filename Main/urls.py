@@ -18,9 +18,12 @@ from django.urls import path, include
 
 # App Views
 from Register import views as v
+import environ
 
+env = environ.Env()
+environ.Env.read_env()
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path(env('ADMIN_URL')+'/', admin.site.urls),
     path('', include('Idea_Main.urls')),
     path('', include('Post.urls')),
     # Registeration

@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import RegisterForm
 
-# Create your views here.
-
+# Thank you Tech With Tim for guiding me through the User Creation Process Code in this Register App
 def register(request):
 	if request.method == "POST":
 		register_form = RegisterForm(request.POST)

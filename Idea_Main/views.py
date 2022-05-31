@@ -5,6 +5,8 @@ from Post.forms import IdeaForm, CommunityForm
 from Post.models import Idea, Communities
 # Create your views here.
 
+
+
 def home(request, pk=None):
 
 
@@ -53,3 +55,9 @@ def home(request, pk=None):
 					"ideas" : ideas, 'pub_ideas' : pub_ideas}
 	return render(request, "views_gen/home.html", context)
 
+
+def privacyPolicy(request):
+	return render(request, "views_gen/privacy_policy.html")
+	
+def termsOfService(request):
+	return render(request, "views_gen/terms_of_service.html")

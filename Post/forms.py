@@ -27,6 +27,7 @@ class CommunityForm(forms.ModelForm):
 			'community_name' : forms.TextInput(attrs={"placeholder" : "Ideas For Youtube", "class" : "form-control form-icon-input-left",
 										 "id" : "inputLeftIcon1"}),
 
-			'community_bio' : forms.TextInput(attrs={"placeholder" : "can't think of posts", "class" : "form-control form-icon-input-left" })
+			'community_bio' : forms.TextInput(attrs={"placeholder" : "can't think of posts", "class" : "form-control form-icon-input-left" }),
+
 			
 		}

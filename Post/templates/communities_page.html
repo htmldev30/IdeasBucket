@@ -1,44 +1,42 @@
-{% extends "base.html" %}
-{% block content %}
-{% load crispy_forms_tags %}
+{% extends "base.html" %} {% block content %} {% load crispy_forms_tags %} 
 {% load widget_tweaks %}
 <section class="bg-dark u-content-space">
-        <div class="container">
-          <header class="text-center w-md-50 mx-auto mb-8">
-            <h2 class="h1 text-white">The Creative Communities</h2>
-            <p class="h5 text-white">It only takes an idea to change everything</p>
-          </header>
+  <div class="container">
+    <header class="text-center w-md-50 mx-auto mb-8">
+      <h2 class="h1 text-white">The Creative Communities</h2>
+      <p class="h5 text-white">It only takes an idea to change everything</p>
+    </header>
 
-          <!-- Team Block -->
-          <div class="row">
-            <div class="col-lg-3 col-sm-6 mb-5">
-              <!-- Team Block -->
-              {% for community in all_communities %}
+    <!-- Team Block -->
+    <div class="row">
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <!-- Team Block -->
+        {% for community in all_communities %}
 
-              <a href="{{community.community_slug}}">
-              <figure>
-                <img class="w-100 rounded-top" src="https://via.placeholder.com/640x360" alt="Image Description">
+        <a href="{{community.community_slug}}">
+          <figure>
+          
 
-                <!-- Figure Info -->
-                <div class="u-box-shadow-sm bg-white text-center rounded p-4">
-                  <div class="mb-3">
-                    <h5 class="mb-1">{{community.community_name}}</h5>
-                    <hr>
-                    <small class="d-block font-style-normal text-uppercase u-letter-spacing-xs">{{community.community_bio}}</small>
-                  </div>
-                </div>
-                <!-- End Figure Info-->
-              </figure>
-            </a>
-              {% endfor %}
-              <!-- End Figure -->
+            <!-- Figure Info -->
+            <div class="u-box-shadow-sm bg-white text-center rounded p-4">
+              <div class="mb-3">
+                <h5 class="mb-1">{{community.community_name}}</h5>
+                <hr />
+                <small
+                  class="d-block font-style-normal text-uppercase u-letter-spacing-xs"
+                  >{{community.community_bio}}</small
+                >
+              </div>
             </div>
-
-            
-              
-          </div>
-          <!-- End Team Block -->
-        </div>
-      </section>
-      <!-- End Team -->
+            <!-- End Figure Info-->
+          </figure>
+        </a>
+        {% endfor %}
+        <!-- End Figure -->
+      </div>
+    </div>
+    <!-- End Team Block -->
+  </div>
+</section>
+<!-- End Team -->
 {% endblock %}

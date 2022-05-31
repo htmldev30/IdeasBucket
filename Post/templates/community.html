@@ -10,17 +10,15 @@
 
     <!-- Heading Row -->
     <div class="row align-items-center my-5">
-        <div class="col-lg-7">
-            <img class="img-fluid rounded mb-4 mb-lg-0 border-bottom-success" src="https://via.placeholder.com/640x360" alt="">
-        </div>
+     
         <!-- /.col-lg-8 -->
-        <div class="col-lg-5">
+        <div class="col-lg-12">
             <h1 class="font-weight-light text-white">{{community.community_name}}</h1>
             <p class="text-white">{{community.community_bio}}</p>
 
   
                   
-                        <h5 class="modal-title text-dark" id="exampleModalLongTitle"><b>Add any ideas</b></h5>
+                        <h5 class="modal-title text-white" id="exampleModalLongTitle"><b>Add any ideas</b></h5>
                        
                      
                       <br>
@@ -40,19 +38,14 @@
                            
                         <input name="idea_input" class="btn btn-info" value="Add To Bin" type="submit">
                       </form>
- </div>
-        </div>
-        <!-- /.col-md-4 -->
-    </div>
-    <!-- /.row -->
+                      </div>
+                              </div>
+                              <!-- /.col-md-4 -->
+                          </div>
+                          <!-- /.row -->
 
-    <!-- Call to Action Well -->
-        <div class="display-6 card text-white bg-dark my-5 py-4 text-center">
-        <div class="card-body">
-            <p class="text-white m-0">A dedicated news and headsup banner - Coming Soon</p>
-        </div>
-    </div>
-
+ 
+     
     <!-- Content Row -->
    <div class="row">
     {% for idea in comm_ideas %}
@@ -72,11 +65,7 @@
                   
                 </div>
 
-                <!--
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary btn-sm">More Info</a>
-                </div>
-              -->
+           
     </div>
 
         </div>
