@@ -8,7 +8,6 @@ gunicorn==20.1.0
 packaging==21.3
 Pillow==7.1.1
 pip-review==1.1.1
-pkg-resources==0.0.0
 pyparsing==3.0.9
 pytz==2019.3
 sqlparse==0.4.2
