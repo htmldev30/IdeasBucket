@@ -10,7 +10,7 @@ from Post.models import Idea, Communities
 def home(request, pk=None):
 
         if not User.is_authenticated:
-                return redirect("home")
+                return redirect("register")
 	if User.is_authenticated:
 		community_form = CommunityForm(request.POST)
 		if request.method == "POST":
