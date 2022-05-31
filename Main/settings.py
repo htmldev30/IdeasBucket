@@ -30,6 +30,12 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1','127.0.0.1:8000', 'ideasbucket.herokuapp.com']
 
+SECURE_HSTS_SECONDS = 31536000
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_SSL_REDIRECT=True
+SESSION_COOKIE_SECURE=True
+CSRF_COOKIE_SECURE=True
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # Application definition
 
