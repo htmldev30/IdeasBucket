@@ -3,6 +3,8 @@ from .models import Communities, Idea
 from .forms import IdeaForm
 # Create your views here.
 def communities(request):
+	if request.user.is_authenticated:
+		return redirect("register")
 	all_communities = Communities.objects.all()
 
 	context = {"all_communities" : all_communities}
